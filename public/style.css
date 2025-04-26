@@ -1,0 +1,55 @@
+body {
+  color: rgb(69, 33, 88);
+  background-color: rgb(221, 201, 231);
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-container {
+  padding: 20px;
+}
+
+button {
+  margin-top: 10px;
+}
+
+#msg-input {
+  width: 300px;
+}
+
+body {
+  color: rgb(69, 33, 88);
+  background-color: rgb(221, 201, 231);
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-container {
+  padding: 20px;
+}
+
+button {
+  margin-top: 10px;
+}
+
+#msg-input {
+  width: 300px;
+}
