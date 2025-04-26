@@ -7,6 +7,11 @@ body {
 h1 {
   text-align: center;
 }
+.instructions{
+  text-align:center;
+  width:60%;
+
+}
 
 .container {
   display: flex;
@@ -52,4 +57,11 @@ button {
 
 #msg-input {
   width: 300px;
+}
+
+#new-message{
+  text-align:center;
+  background-color:bisque;
+  padding:30px;
+  margin:10px;
 }

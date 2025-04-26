@@ -42,5 +42,15 @@ app.post('/new-message', async (req, res) => {
   const randomIndex = Math.floor(Math.random() * availableMessages.length);
   const randomMessage = availableMessages[randomIndex];
 
+  // Find the index of the random message in the original array
+  const randomMessageIndex = db.data.messages.findIndex(msg => msg.message === randomMessage.message);
+
+  // Delete the randomly selected message from the database
+  if (randomMessageIndex !== -1) {
+    db.data.messages.splice(randomMessageIndex, 1); // Remove the message at the selected index
+    await db.write(); // Save the updated database
+    console.log(`Message deleted: ${randomMessage.message}`);
+  }
+
   res.json(randomMessage); // Send the random message back as a response
 });
