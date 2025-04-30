@@ -20,24 +20,46 @@ window.addEventListener('load', () => {
             body: JSON.stringify(messageObject)
         })
         .then(response => response.json())
-        .then(data => {
+        .then(async data => {  // ⬅ make this function async so we can use await inside
 
-            // Optional: Show a message telling the user to refresh to send another message
-            const deliveryMessage = document.createElement('div');
-            deliveryMessage.textContent = "As you toss your bottle out to sea, you notice another bottle washes ashore. You open it and read: ";
-            feed.appendChild(deliveryMessage);
-
-            // Display the random message after posting the new message
+                        // Hide the input and submit button after submission
+                        inputContainer.style.display = 'none';
+                        instructionsContainer.style.display = 'none';
+            const messages = [
+                "As you toss your bottle out to sea...",
+                "you notice another bottle washes ashore.",
+                "You open it and read: "
+            ];
+        
+            const typeMessage = async (text, container) => {
+                const div = document.createElement('div');
+                container.appendChild(div);
+                
+                for (let i = 0; i < text.length; i++) {
+                    div.textContent += text[i];
+                    await new Promise(resolve => setTimeout(resolve, 30));
+                }
+            };
+        
+            const showMessages = async () => {
+                for (const message of messages) {
+                    await typeMessage(message, feed);
+                    await new Promise(resolve => setTimeout(resolve, 500));
+                }
+            };
+        
+            await showMessages();  // ⬅ WAIT until all delivery messages are typed out
+        
+            // Now display the random message
             const newMessage = document.createElement('div');
             newMessage.id = 'new-message';
             newMessage.textContent = `${data.message}`;
+            newMessage.classList.add('fade-message');
             feed.appendChild(newMessage);
+        
 
-            // Hide the input and submit button after submission
-            inputContainer.style.display = 'none'; // Hide the input box and button
-            instructionsContainer.style.display = 'none';
-            
         })
+        
         .catch(error => {
             console.log(error);
         });

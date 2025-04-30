@@ -21,6 +21,7 @@ h1 {
 
 .input-container {
   padding: 20px;
+
 }
 
 button {
@@ -47,10 +48,6 @@ h1 {
   align-items: center;
 }
 
-.input-container {
-  padding: 20px;
-}
-
 button {
   margin-top: 10px;
 }
@@ -65,3 +62,4 @@ button {
   padding:30px;
   margin:10px;
 }
+
