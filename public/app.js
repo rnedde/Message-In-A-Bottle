@@ -69,7 +69,7 @@ window.addEventListener('load', async () => {
                 
                 for (let i = 0; i < text.length; i++) {
                     div.textContent += text[i];
-                    await new Promise(resolve => setTimeout(resolve, 30));
+                    await new Promise(resolve => setTimeout(resolve, 1));
                 }
             };
         
@@ -82,12 +82,15 @@ window.addEventListener('load', async () => {
         
             await showMessages();  // ⬅ WAIT until all delivery messages are typed out
         
-            // Now display the random message
             const newMessage = document.createElement('div');
             newMessage.id = 'new-message';
             newMessage.textContent = `${data.message}`;
-            newMessage.classList.add('fade-message');
             feed.appendChild(newMessage);
+            
+            // Fade it in after a short delay (to allow it to render first)
+            setTimeout(() => {
+              newMessage.classList.add('visible');
+            }, 50);
         
 
         })
