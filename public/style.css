@@ -3,36 +3,45 @@ body {
   min-height: 100vh;
   margin: 0;
   font-family: sans-serif;
-  height:100vh;
+  height: 100vh;
   overflow: hidden;
 }
-p{
-  line-height: 1.8; /* 1.8 times the font size */
 
+p {
+  line-height: 1.8;
+  /* 1.8 times the font size */
+  font-family: great-primer-sc, sans-serif;
 }
+
 .container {
   display: flex;
-  flex-direction: column; /* Stack the children elements vertically */
-  justify-content: center; /* Vertically center the elements */
-  text-align: center; /* Optional: This makes text aligned in the center */
+  flex-direction: column;
+  /* Stack the children elements vertically */
+  justify-content: center;
+  /* Vertically center the elements */
+  text-align: center;
+  /* Optional: This makes text aligned in the center */
 }
 
 h1 {
   text-align: center;
- padding:70px;
- padding-bottom:10px;
+  padding: 70px;
+  padding-bottom: 10px;
+  font-family: great-primer, sans-serif;
+  font-style: italic;
+
 }
 
 
 /* all button styling */
 .btn {
-  margin:30px;
+  font-family: great-primer-sc, sans-serif;
+  margin: 30px;
   padding: 10px 10px;
-  background-color: #4CAF50;
-  color: white;
-  width:40%;
+  background-color: #2e86a3;
+  color: bisque;
+  width: 40%;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
 }
@@ -57,13 +66,13 @@ h1 {
   opacity: 1;
 }
 
-
 .user-message-container {
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
   pointer-events: none;
   /* Prevent interaction when hidden */
 }
+
 .user-message-container.visible {
   opacity: 1;
   pointer-events: auto;
@@ -72,24 +81,30 @@ h1 {
 
 
 .input-container {
-  
   display: flex;
-  flex-direction: column;  /* Stack elements vertically */
-  align-items: center;     /* Center them horizontally */
-  justify-content: center; /* Optional: Center content vertically within this container */
-  margin: 20px auto;       /* Center the container on the page */
+  flex-direction: column;
+  /* Stack elements vertically */
+  align-items: center;
+  /* Center them horizontally */
+  justify-content: center;
+  /* Optional: Center content vertically within this container */
+  margin: 20px auto;
+  /* Center the container on the page */
 }
 
 /* Textarea (input field) */
 #msg-input {
-  margin-top:30px;
-  min-height: 100px;     /* Adjust as needed for size */
-  margin-bottom: 15px;   /* Space between textarea and button */
-  padding: 10px;         /* Optional: Add padding for better user experience */
-  border-radius: 5px;    /* Optional: Add border radius */
-  border: 1px solid #ccc; /* Optional: Add a light border */
-}
 
+  font-family: seaweed-script-pro, sans-serif;
+  font-size: large;
+  text-align: center;
+  background-color: bisque;
+  padding: 30px;
+  margin: 30px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 0;
+}
 
 
 body {
@@ -109,11 +124,9 @@ h1 {
 }
 
 
-#msg-input {
-  width: 300px;
-}
-
 #new-message {
+  font-family: seaweed-script-pro, sans-serif;
+  font-size: large;
   text-align: center;
   background-color: bisque;
   padding: 30px;

@@ -13,7 +13,7 @@ window.addEventListener('load', async () => {
         "Your message will be shared anonymously with another visitor...",
         "Messages are anonymous, but intended to bring warmth, curiosity, or reflection to a stranger...",
         "As you toss your bottle out to sea...",
-        "you notice another bottle washes ashore.",
+        "You notice another bottle washes ashore.",
         "You open it and read: "
     ];
 
@@ -26,7 +26,7 @@ window.addEventListener('load', async () => {
         }
         for (let i = 0; i < text.length; i++) {
             el.textContent += text[i];
-            await new Promise(resolve => setTimeout(resolve, 1));
+            await new Promise(resolve => setTimeout(resolve, 15));
         }
     };
 
