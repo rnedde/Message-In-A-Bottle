@@ -14,14 +14,15 @@ h1 {
 
 }
 .user-message-container {
-  opacity: 0;  transition: opacity 1s ease-in-out;
-  pointer-events: none; /* prevents interaction until visible */
-}
-.user-message-container.visible {
-  opacity: 1;
-  pointer-events: auto;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none; /* Prevent interaction when hidden */
 }
 
+.user-message-container.visible {
+  opacity: 1;
+  pointer-events: auto; /* Allow interaction when visible */
+}
 .container {
   display: flex;
   flex-direction: column;

@@ -5,8 +5,8 @@ window.addEventListener('load', async () => {
     const inputContainer = document.querySelector('.user-message-container');
     const instructionsContainer = document.querySelector('.instructions');
     const introContainer = document.querySelector('#intro');
+    const composeBtn = document.querySelector('#compose-btn');
   
-    // Clear the intro and add typewriter effect to it
     const introParagraphs = [
       "What you write will be tossed out into the endless sea, carried by the currents and received by someone else in the future. Whether it is the next person or the one after that, trust that your message will be found and read.",
       "Offer what you wish to share: a confession, a story, a poem, or a wish. But know this—the sea does not reveal its secrets. You may never know who finds your message or when it will arrive. Once your words are set free, a message will return to you—an anonymous voice, floating back from the tide.",
@@ -14,31 +14,42 @@ window.addEventListener('load', async () => {
       "Messages are anonymous, but intended to bring warmth, curiosity, or reflection to a stranger. Please be kind."
     ];
   
-    // Typewriter function for a paragraph
     const typeParagraph = async (text, container) => {
-        const p = document.createElement('p');
-        container.appendChild(p);
-      
-        // Type the paragraph one letter at a time
-        for (let i = 0; i < text.length; i++) {
-          p.textContent += text[i];
-          await new Promise(resolve => setTimeout(resolve, 1));
-        }
-    
-      };
+      const p = document.createElement('p');
+      container.insertBefore(p, composeBtn);
+      for (let i = 0; i < text.length; i++) {
+        p.textContent += text[i];
+        await new Promise(resolve => setTimeout(resolve, 1));
+      }
+    };
   
-    // Type all intro paragraphs one by one
-    introContainer.innerHTML = ''; // Clear static HTML
-    for (const para of introParagraphs) {
-      await typeParagraph(para, introContainer);
-      await new Promise(resolve => setTimeout(resolve, 300)); // Pause between paragraphs
+    // Show first 2 paragraphs
+    introContainer.innerHTML = ''; // Clear any static HTML
+    introContainer.appendChild(composeBtn); // Re-append the button
+    for (let i = 0; i < 2; i++) {
+      await typeParagraph(introParagraphs[i], introContainer);
+      await new Promise(resolve => setTimeout(resolve, 300));
     }
   
-    // After intro finishes typing, input box fades in
-    inputContainer.classList.add('visible');
-
+    composeBtn.style.display = 'inline-block';
   
-    // ... the rest of your existing button click logic follows
+    composeBtn.addEventListener('click', async () => {
+      // Clear first page
+      introContainer.innerHTML = '';
+      introContainer.appendChild(composeBtn);
+      composeBtn.style.display = 'none';
+  
+      // Type second 2 paragraphs
+      for (let i = 2; i < 4; i++) {
+        await typeParagraph(introParagraphs[i], introContainer);
+        await new Promise(resolve => setTimeout(resolve, 300));
+      }
+  
+      // Fade in the input container
+      inputContainer.classList.add('visible');
+    });
+  
+    // The button event listener must be inside the load event
     button.addEventListener('click', () => {
         let msg = msgInput.value;
 
@@ -54,9 +65,9 @@ window.addEventListener('load', async () => {
         .then(response => response.json())
         .then(async data => {  // ⬅ make this function async so we can use await inside
 
-                        // Hide the input and submit button after submission
-                        inputContainer.style.display = 'none';
-                        instructionsContainer.style.display = 'none';
+            // Hide the input and submit button after submission
+            inputContainer.style.display = 'none';
+            instructionsContainer.style.display = 'none';
             const messages = [
                 "As you toss your bottle out to sea...",
                 "you notice another bottle washes ashore.",
