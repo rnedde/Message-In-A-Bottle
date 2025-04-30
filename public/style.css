@@ -3,64 +3,94 @@ body {
   min-height: 100vh;
   margin: 0;
   font-family: sans-serif;
+  height:100vh;
+  overflow: hidden;
+}
+p{
+  line-height: 1.8; /* 1.8 times the font size */
 
 }
-
+.container {
+  display: flex;
+  flex-direction: column; /* Stack the children elements vertically */
+  justify-content: center; /* Vertically center the elements */
+  text-align: center; /* Optional: This makes text aligned in the center */
+}
 
 h1 {
   text-align: center;
-}
-.instructions{
-  text-align:left;
-  width:60%;
-
-}
-#compose-btn {
-  opacity: 0;
-  transition: opacity 1s ease-in-out; /* Add a transition for smooth fade-in effect */
+ padding:70px;
+ padding-bottom:10px;
 }
 
-/* Class to make the button visible */
-#compose-btn.visible {
-  opacity: 1; /* When the class is added, the opacity changes to 1 */
-}
-.btn{
-    padding: 10px 20px;
+
+/* all button styling */
+.btn {
+  margin:30px;
+  padding: 10px 10px;
   background-color: #4CAF50;
   color: white;
+  width:40%;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
 }
+
+#narration-container {
+  width: 60%;
+  margin: 0 auto;
+  /* centers it */
+  text-align: left;
+  /* optional: adjust text alignment */
+}
+
+
+/* Initially hide the button */
+#compose-btn {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Show the button with fade-in effect */
+#compose-btn.visible {
+  opacity: 1;
+}
+
+
 .user-message-container {
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
-  pointer-events: none; /* Prevent interaction when hidden */
+  pointer-events: none;
+  /* Prevent interaction when hidden */
 }
-
 .user-message-container.visible {
   opacity: 1;
-  pointer-events: auto; /* Allow interaction when visible */
+  pointer-events: auto;
+  /* Allow interaction when visible */
 }
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+
 
 .input-container {
-  padding: 20px;
-
+  
+  display: flex;
+  flex-direction: column;  /* Stack elements vertically */
+  align-items: center;     /* Center them horizontally */
+  justify-content: center; /* Optional: Center content vertically within this container */
+  margin: 20px auto;       /* Center the container on the page */
 }
 
-button {
-  margin-top: 10px;
-}
-
+/* Textarea (input field) */
 #msg-input {
-  width: 300px;
+  margin-top:30px;
+  min-height: 100px;     /* Adjust as needed for size */
+  margin-bottom: 15px;   /* Space between textarea and button */
+  padding: 10px;         /* Optional: Add padding for better user experience */
+  border-radius: 5px;    /* Optional: Add border radius */
+  border: 1px solid #ccc; /* Optional: Add a light border */
 }
+
+
 
 body {
   color: rgb(69, 33, 88);
@@ -78,19 +108,16 @@ h1 {
   align-items: center;
 }
 
-button {
-  margin-top: 10px;
-}
 
 #msg-input {
   width: 300px;
 }
 
-#new-message{
-  text-align:center;
-  background-color:bisque;
-  padding:30px;
-  margin:10px;
+#new-message {
+  text-align: center;
+  background-color: bisque;
+  padding: 30px;
+  margin: 30px;
   opacity: 0;
   transition: opacity 1s ease-in-out;
 }
@@ -98,9 +125,11 @@ button {
 #new-message.visible {
   opacity: 1;
 }
+
 .fade-in {
   opacity: 0;
-  animation: fadeIn 2s forwards; /* Adjust the duration as needed */
+  animation: fadeIn 2s forwards;
+  /* Adjust the duration as needed */
 }
 
 @keyframes fadeIn {

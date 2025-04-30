@@ -12,17 +12,23 @@
 <body>
     <h1>Send a Message in a Bottle</h1>
     <div class="container">
-        <div id="intro" class="instructions"></p>
+        <div id="intro" class="instructions">
+            </p>
         </div>
-        <button id="compose-btn" class="btn" style="display: none;">Compose Message</button>
+        <div id="narration-container">
+
+        </div>
+
+        <button class="btn" id="compose-btn">Compose a message</button>
 
         <div class="user-message-container">
-            <input type="text" id="msg-input">
-            <button class="btn" id="msg-submit">send</button>
+            <textarea id="msg-input" placeholder="Compose your message..."></textarea>
+            <button class="btn" id="msg-submit">Bottle and send</button>
+
         </div>
         <div id="received-message-container"></div>
-    </div>
-    <script src="app.js"></script>
+
+        <script src="app.js"></script>
 </body>
 
 </html>
