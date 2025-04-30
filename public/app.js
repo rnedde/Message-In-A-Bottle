@@ -98,6 +98,13 @@ window.addEventListener('load', async () => {
             .catch(console.log);
         msgInput.value = "";
     });
+    msgInput.addEventListener('blur', () => {
+        // Delay to allow viewport to settle
+        setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 100);
+      });
+
 
 
     

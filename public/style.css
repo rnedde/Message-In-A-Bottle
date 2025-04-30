@@ -21,7 +21,9 @@ body {
   height: 100vh;
   overflow: hidden;
 }
-
+a{
+  color:#023040
+}
 p {
   line-height: 1.8;
   /* 1.8 times the font size */
