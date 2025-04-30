@@ -11,7 +11,7 @@ window.addEventListener('load', async () => {
         "What you write will be tossed out into the endless sea, carried by the currents and received by someone else in the future...",
         "Offer what you wish to share: a confession, a story, a poem, or a wish...",
         "Your message will be shared anonymously with another visitor...",
-        "Messages are anonymous, but intended to bring warmth, curiosity, or reflection to a stranger...",
+        "Messages are anonymous, but intended to bring warmth, curiosity, or reflection to a stranger. Please be kind...",
         "As you toss your bottle out to sea...",
         "You notice another bottle washes ashore.",
         "You open it and read: ",
