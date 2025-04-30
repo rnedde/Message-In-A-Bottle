@@ -70,24 +70,34 @@ window.addEventListener('load', async () => {
                 inputContainer.style.display = 'none';
                 instructionsContainer.style.display = 'none';
                 feed.innerHTML = '';
-
+            
                 // Type third-page narration messages
                 for (let i = 4; i < narrationMessages.length; i++) {
                     await typeNarrationMessage(narrationMessages[i], feed, 'p');
                     await new Promise(resolve => setTimeout(resolve, 500));
                 }
-
+            
                 const newMessage = document.createElement('div');
                 newMessage.id = 'new-message';
                 newMessage.textContent = data.message;
                 feed.appendChild(newMessage);
-
+            
                 setTimeout(() => {
                     newMessage.classList.add('visible');
                 }, 50);
-            })
+            
+                // ✅ Show action buttons
+                const actions = document.querySelector('.action-buttons');
+                actions.style.display = 'flex'; // Needed to ensure it's on screen
+                setTimeout(() => {
+                  actions.classList.add('visible');
+                }, 50); // Wait briefly to let the display take effect
+                            })
+            
             .catch(console.log);
 
         msgInput.value = "";
+
+          
     });
 });

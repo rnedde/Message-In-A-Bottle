@@ -36,12 +36,13 @@ h1 {
 /* all button styling */
 .btn {
   font-family: great-primer-sc, sans-serif;
-  margin: 30px;
+  margin: 5px;
   padding: 10px 10px;
   background-color: #2e86a3;
   color: bisque;
-  width: 40%;
+  width: 100%;
   border: none;
+
   cursor: pointer;
   font-size: 16px;
 }
@@ -143,6 +144,20 @@ h1 {
   opacity: 0;
   animation: fadeIn 2s forwards;
   /* Adjust the duration as needed */
+}
+.action-buttons {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.action-buttons.visible {
+  opacity: 1;
 }
 
 @keyframes fadeIn {

@@ -8,6 +8,7 @@
     <title>Message in a Bottle</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://use.typekit.net/ysq8pby.css">
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 </head>
 
 <body>
@@ -19,15 +20,22 @@
         <div id="narration-container">
 
         </div>
-
-        <button class="btn" id="compose-btn">Compose a Message</button>
-
+        <div class="button-container">
+            <button class="btn" id="compose-btn">Compose a Message</button>
+        </div>
         <div class="user-message-container">
             <textarea id="msg-input" placeholder="Compose your message..."></textarea>
-            <button class="btn" id="msg-submit">Bottle and Send</button>
+            <div class="button-container">
+                <button class="btn" id="msg-submit">Bottle and Send</button>
+            </div>
 
         </div>
         <div id="received-message-container"></div>
+
+        <div class="action-buttons">
+            <button id="share-btn" class="btn">Save or Share</button>
+            <button id="destroy-btn" class="btn">Destroy</button>
+        </div>
 
         <script src="app.js"></script>
 </body>
