@@ -31,6 +31,8 @@ window.addEventListener('load', async () => {
       await new Promise(resolve => setTimeout(resolve, 300));
     }
   
+      composeBtn.classList.add('visible');  // This will trigger the fade-in effect
+
     composeBtn.style.display = 'inline-block';
   
     composeBtn.addEventListener('click', async () => {

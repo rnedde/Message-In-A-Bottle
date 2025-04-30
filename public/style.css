@@ -3,15 +3,35 @@ body {
   min-height: 100vh;
   margin: 0;
   font-family: sans-serif;
+
 }
+
 
 h1 {
   text-align: center;
 }
 .instructions{
-  text-align:center;
+  text-align:left;
   width:60%;
 
+}
+#compose-btn {
+  opacity: 0;
+  transition: opacity 1s ease-in-out; /* Add a transition for smooth fade-in effect */
+}
+
+/* Class to make the button visible */
+#compose-btn.visible {
+  opacity: 1; /* When the class is added, the opacity changes to 1 */
+}
+.btn{
+    padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
 }
 .user-message-container {
   opacity: 0;
