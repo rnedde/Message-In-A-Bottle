@@ -12,9 +12,15 @@ h1 {
   width:60%;
 
 }
-.message-container {
-  display: none; /* Hidden until the intro finishes typing */
+.user-message-container {
+  opacity: 0;  transition: opacity 1s ease-in-out;
+  pointer-events: none; /* prevents interaction until visible */
 }
+.user-message-container.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 .container {
   display: flex;
   flex-direction: column;

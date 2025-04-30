@@ -1,8 +1,8 @@
 window.addEventListener('load', async () => {
-    const feed = document.querySelector('#received-message');
+    const feed = document.querySelector('#received-message-container');
     const msgInput = document.querySelector("#msg-input");
     const button = document.querySelector('#msg-submit');
-    const inputContainer = document.querySelector('.message-container');
+    const inputContainer = document.querySelector('.user-message-container');
     const instructionsContainer = document.querySelector('.instructions');
     const introContainer = document.querySelector('#intro');
   
@@ -22,7 +22,7 @@ window.addEventListener('load', async () => {
         // Type the paragraph one letter at a time
         for (let i = 0; i < text.length; i++) {
           p.textContent += text[i];
-          await new Promise(resolve => setTimeout(resolve, 15));
+          await new Promise(resolve => setTimeout(resolve, 1));
         }
     
       };
@@ -34,8 +34,9 @@ window.addEventListener('load', async () => {
       await new Promise(resolve => setTimeout(resolve, 300)); // Pause between paragraphs
     }
   
-    // After intro finishes typing, input box becomes visible
-    inputContainer.style.display = 'block';
+    // After intro finishes typing, input box fades in
+    inputContainer.classList.add('visible');
+
   
     // ... the rest of your existing button click logic follows
     button.addEventListener('click', () => {
