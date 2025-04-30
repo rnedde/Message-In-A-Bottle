@@ -59,45 +59,45 @@ window.addEventListener('load', async () => {
     button.addEventListener('click', async () => {
         let msg = msgInput.value;
         if (!msg) return;
-
+    
         fetch('/new-message', {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ message: msg })
         })
-            .then(response => response.json())
-            .then(async data => {
-                inputContainer.style.display = 'none';
-                instructionsContainer.style.display = 'none';
-                feed.innerHTML = '';
-            
-                // Type third-page narration messages
-                for (let i = 4; i < narrationMessages.length; i++) {
-                    await typeNarrationMessage(narrationMessages[i], feed, 'p');
-                    await new Promise(resolve => setTimeout(resolve, 500));
-                }
-            
-                const newMessage = document.createElement('div');
-                newMessage.id = 'new-message';
-                newMessage.textContent = data.message;
-                feed.appendChild(newMessage);
-            
-                setTimeout(() => {
-                    newMessage.classList.add('visible');
-                }, 50);
-            
-                // ✅ Show action buttons
+        .then(response => response.json())
+        .then(async data => {
+            inputContainer.style.display = 'none';
+            instructionsContainer.style.display = 'none';
+            feed.innerHTML = '';
+        
+            // Type third-page narration messages
+            for (let i = 4; i < narrationMessages.length; i++) {
+                await typeNarrationMessage(narrationMessages[i], feed, 'p');
+                await new Promise(resolve => setTimeout(resolve, 500));
+            }
+        
+            const newMessage = document.createElement('div');
+            newMessage.id = 'new-message';
+            newMessage.textContent = data.message;
+            feed.appendChild(newMessage);
+        
+            setTimeout(() => {
+                newMessage.classList.add('visible');
+            }, 50); // Delay to ensure the new message is added
+    
+            // Wait for the message to finish fading in before showing the buttons
+            setTimeout(() => {
                 const actions = document.querySelector('.action-buttons');
-                actions.style.display = 'flex'; // Needed to ensure it's on screen
+                actions.style.display = 'flex'; // Ensure buttons are visible
                 setTimeout(() => {
-                  actions.classList.add('visible');
-                }, 50); // Wait briefly to let the display take effect
-                            })
-            
-            .catch(console.log);
-
+                    actions.classList.add('visible'); // Fade in buttons after message
+                }, 50); // Slight delay to trigger the fade-in
+            }, 1050); // Wait for the message fade-in to complete (1s + small buffer)
+        })
+        .catch(console.log);
+    
         msgInput.value = "";
-
-          
     });
+    
 });

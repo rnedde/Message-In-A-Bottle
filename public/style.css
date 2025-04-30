@@ -1,6 +1,21 @@
+@keyframes waveAnimation {
+  0% {
+    background-position: 100% 100%;
+  }
+  50% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
 body {
-  background: linear-gradient(to bottom, #0093E9, #80D0C7, #FFE29F);
+  background: linear-gradient( #00455c,  #51aaad,#d6c7a9);
+  background-size: 150% 150%;
+  animation: waveAnimation 10s ease-in-out infinite;
   min-height: 100vh;
+  color: #023040;
   margin: 0;
   font-family: sans-serif;
   height: 100vh;
@@ -24,6 +39,7 @@ p {
 }
 
 h1 {
+  color:#d6c7a9;
   text-align: center;
   padding: 70px;
   padding-bottom: 10px;
@@ -35,13 +51,14 @@ h1 {
 
 /* all button styling */
 .btn {
-  font-family: great-primer-sc, sans-serif;
+  font-family: great-primer, sans-serif;
   margin: 5px;
   padding: 10px 10px;
-  background-color: #2e86a3;
-  color: bisque;
+  background-color: #00455c;
+  color: #d6c7a9;
   width: 100%;
   border: none;
+  font-style:italic;
 
   cursor: pointer;
   font-size: 16px;
@@ -99,20 +116,16 @@ h1 {
   font-family: seaweed-script-pro, sans-serif;
   font-size: large;
   text-align: center;
-  background-color: bisque;
+  background-color: #ded5c3;
   padding: 30px;
-  margin: 30px;
+  margin: 20px;
   margin-bottom: 10px;
   border: none;
   border-radius: 0;
+  color:#00455c;
 }
 
 
-body {
-  color: rgb(69, 33, 88);
-  background-color: rgb(221, 201, 231);
-  margin: 0 auto;
-}
 
 h1 {
   text-align: center;
@@ -129,11 +142,12 @@ h1 {
   font-family: seaweed-script-pro, sans-serif;
   font-size: large;
   text-align: center;
-  background-color: bisque;
+  background-color:#ded5c3;
   padding: 30px;
   margin: 30px;
   opacity: 0;
   transition: opacity 1s ease-in-out;
+  color:#00455c
 }
 
 #new-message.visible {
